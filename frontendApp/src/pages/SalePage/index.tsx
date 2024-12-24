@@ -1,14 +1,19 @@
-import { useState } from 'react'
+import { useFormik } from 'formik'
 import { Input } from '../../components/Input'
 import { Segment } from '../../components/Segment'
 import { Textarea } from '../../components/TextArea'
 
 export const SalePage = () => {
-  const [state, setState] = useState({
-    name: '',
-    nick: '',
-    description: '',
-    text: '',
+  const formik = useFormik({
+    initialValues: {
+      name: '',
+      location: '',
+      description: '',
+      text: '',
+    },
+    onSubmit: (values) => {
+      console.info('Submitted', values)
+    },
   })
 
   return (
@@ -16,13 +21,13 @@ export const SalePage = () => {
       <form
         onSubmit={(e) => {
           e.preventDefault()
-          console.info('Submitted', state)
+          formik.handleSubmit()
         }}
       >
-        <Input name="name" label="Менеджер" state={state} setState={setState} />
-        <Input name="location" label="Участок" state={state} setState={setState} />
-        <Input name="description" label="Товар" state={state} setState={setState} />
-        <Textarea name="text" label="Комментарий" state={state} setState={setState} />
+        <Input name="name" label="Менеджер" formik={formik} />
+        <Input name="location" label="Участок" formik={formik} />
+        <Input name="description" label="Товар" formik={formik} />
+        <Textarea name="text" label="Комментарий" formik={formik} />
         <button type="submit">Зарегистрировать</button>
       </form>
     </Segment>
