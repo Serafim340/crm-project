@@ -12,12 +12,12 @@
     "prettify": "prettier --log-level warn --cache --write ."
   },
   "dependencies": {
+    "@WebApp/backendApp": "workspace:*",
     "@tanstack/react-query": "^4.35.3",
     "@trpc/client": "^10.45.2",
     "@trpc/react-query": "^10.45.2",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "@WebApp/backendApp": "workspace:*"
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "@types/react": "^18.3.17",
@@ -25,6 +25,6 @@
     "@vitejs/plugin-react": "^4.3.4",
     "globals": "^15.13.0",
     "prettier": "^3.4.2",
-    "vite": "^6.0.3"
+    "vite": "^4.4.9"
   }
 }
