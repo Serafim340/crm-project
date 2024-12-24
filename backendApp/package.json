@@ -7,17 +7,20 @@
     "build": "rimraf ./dist && tsc --build ./tsconfig.json",
     "start": "node ./dist/index.js",
     "types": "tsc --noEmit --project ./tsconfig.json",
-	"lint": "eslint --cache --cache-location ./node_modules/.cache/.eslintcache --ext .ts .",
+    "lint": "eslint --cache --cache-location ./node_modules/.cache/.eslintcache --ext .ts .",
     "prettify": "prettier --log-level warn --cache --write ."
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
+    "@types/lodash": "^4.17.13",
     "@types/node": "^22.10.2"
   },
   "dependencies": {
     "@trpc/server": "^10.45.2",
     "cors": "^2.8.5",
-    "express": "^4.21.2"
+    "express": "^4.21.2",
+    "lodash": "^4.17.21",
+    "zod": "^3.24.1"
   }
 }
