@@ -15,7 +15,7 @@ export const Layout = () => {
           </li>
           <li className={css.item}>
             <Link className={css.link} to={getNewGoodsRoute()}>
-              Добавить товар
+              Меню продажи
             </Link>
           </li>
         </ul>
