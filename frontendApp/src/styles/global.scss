@@ -1,6 +1,7 @@
-@import '../../node_modules/reset-css/sass/_reset.scss';
-@import './_vars.scss';
-
+/* stylelint-disable */
+@import '../../node_modules/reset-css/sass/_reset';
+@import './_vars';
+/* stylelint-enable */
 html,
 body,
 #root {

@@ -1,6 +1,7 @@
-@import '../../styles/_vars.scss';
-@import '../../styles/_mixins.scss';
-
+/* stylelint-disable */
+@import '../../styles/_vars';
+@import '../../styles/_mixins';
+/* stylelint-enable*/
 .segment {
   h1.title {
     @include h1;

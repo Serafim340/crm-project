@@ -1,11 +1,13 @@
-@import '../../styles/_vars.scss';
-@import '../../styles/_mixins.scss';
-
+/* stylelint-disable */
+@import '../../styles/_vars';
+@import '../../styles/_mixins';
+/* stylelint-enable */
 .layout {
   display: flex;
   flex-flow: row nowrap;
   height: 100%;
 }
+
 .navigation {
   height: 100%;
   overflow: auto;
@@ -13,17 +15,20 @@
   padding: 20px 30px;
   border-right: 1px solid $black;
 }
+
 .content {
   height: 100%;
   overflow: auto;
   flex: 1 1 100%;
   padding: 20px 30px;
 }
+
 .logo {
   font-weight: bold;
   font-size: 20px;
   margin-bottom: 10px;
 }
+
 .menu {
   .item {
     &:not(:first-child) {
