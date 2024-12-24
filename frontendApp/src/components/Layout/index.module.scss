@@ -1,0 +1,33 @@
+@import '../../styles/_vars.scss';
+@import '../../styles/_mixins.scss';
+
+.layout {
+  display: flex;
+  flex-flow: row nowrap;
+  height: 100%;
+}
+.navigation {
+  height: 100%;
+  overflow: auto;
+  flex: 0 0 150px;
+  padding: 20px 30px;
+  border-right: 1px solid $black;
+}
+.content {
+  height: 100%;
+  overflow: auto;
+  flex: 1 1 100%;
+  padding: 20px 30px;
+}
+.logo {
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.menu {
+  .item {
+    &:not(:first-child) {
+      margin-top: 5px;
+    }
+  }
+}

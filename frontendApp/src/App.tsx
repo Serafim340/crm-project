@@ -4,6 +4,7 @@ import { getAllLocationsRoute, getViewLocationRoute, viewLocationRouteParams } f
 import { TrpcProvider } from './lib/trpc'
 import { LocationsPage } from './pages/LocationsPage'
 import { ViewLocationPage } from './pages/ViewLocationPage'
+import './styles/global.scss'
 
 export const App = () => {
   return (

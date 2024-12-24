@@ -1,0 +1,29 @@
+@import '../../styles/_vars.scss';
+@import '../../styles/_mixins.scss';
+
+.title {
+  @include h1;
+}
+
+.locations {
+  .location {
+    padding: 20px;
+    border: 1px solid $black;
+    border-radius: 10px;
+    & + .location {
+      margin-top: 20px;
+    }
+
+    .locationName {
+      @include h2;
+
+      .locationLink {
+        @include link;
+      }
+    }
+
+    .locationDescription {
+      font-size: 18px;
+    }
+  }
+}
