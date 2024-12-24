@@ -15,7 +15,7 @@ export const App = () => {
           <Route element={<Layout />}>
             <Route path={routes.getAllLocationsRoute()} element={<LocationsPage />} />
             <Route path={routes.getViewLocationRoute(routes.viewLocationRouteParams)} element={<ViewLocationPage />} />
-            <Route path={routes.getNewGoodsRoute()} element={<SalePage />} />
+            <Route path={routes.getSalePageRoute()} element={<SalePage />} />
           </Route>
         </Routes>
       </BrowserRouter>
