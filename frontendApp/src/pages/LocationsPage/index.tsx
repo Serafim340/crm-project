@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { Segment } from '../../components/Segment'
 import { getViewLocationRoute } from '../../lib/routes'
 import { trpc } from '../../lib/trpc'
 import css from './index.module.scss'
@@ -14,20 +15,22 @@ export const LocationsPage = () => {
   }
 
   return (
-    <div>
-      <h1 className={css.title}>Участки</h1>
+    <Segment title="Участки">
       <div className={css.locations}>
         {data.locations.map((location) => (
           <div className={css.location} key={location.id}>
-            <h2 className={css.locationName}>
-              <Link className={css.locationLink} to={getViewLocationRoute({ locationId: location.id })}>
-                {location.name}
-              </Link>
-            </h2>
-            <p className={css.locationDescription}>{location.description}</p>
+            <Segment
+              size={2}
+              title={
+                <Link className={css.locationLink} to={getViewLocationRoute({ locationId: location.id })}>
+                  {location.name}
+                </Link>
+              }
+              description={location.description}
+            ></Segment>
           </div>
         ))}
       </div>
-    </div>
+    </Segment>
   )
 }
