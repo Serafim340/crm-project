@@ -1,0 +1,17 @@
+extends:
+  - react-app
+  - ../.eslintrc.yml
+parserOptions:
+  project: ./tsconfig.json
+overrides:
+  - files:
+      - vite.config.ts
+    parserOptions:
+      project: ./tsconfig.node.json
+rules:
+  no-console:
+    - error
+    - allow:
+        - info
+        - error
+        - warn
