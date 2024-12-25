@@ -1,4 +1,6 @@
 import { useFormik } from 'formik'
+import { withZodSchema } from 'formik-validator-zod'
+import { z } from 'zod'
 import { Input } from '../../components/Input'
 import { Segment } from '../../components/Segment'
 import { Textarea } from '../../components/TextArea'
@@ -11,26 +13,17 @@ export const SalePage = () => {
       description: '',
       text: '',
     },
-    validate: (values) => {
-      const errors: Partial<typeof values> = {}
-      if (!values.name) {
-        errors.name = 'Имя обязательно'
-      }
-      if (!values.location) {
-        errors.location = 'Участок обязателен'
-      } else if (!values.location.match(/^[a-z0-9-]+$/)) {
-        errors.location = 'Участок может содержать только строчные буквы, цифры и дефисы'
-      }
-      if (!values.description) {
-        errors.description = 'Товар обязателен'
-      }
-      if (!values.text) {
-        errors.text = 'Комментарий обязателен'
-      } else if (values.text.length < 100) {
-        errors.text = 'Комментарий должен быть не менее 100 символов'
-      }
-      return errors
-    },
+    validate: withZodSchema(
+      z.object({
+        name: z.string().min(1),
+        location: z
+          .string()
+          .min(1)
+          .regex(/^[a-z0-9-]+$/, 'Участок может содержать только строчные буквы, цифры и дефисы'),
+        description: z.string().min(1),
+        text: z.string().min(100),
+      })
+    ),
 
     onSubmit: (values) => {
       console.info('Submitted', values)
