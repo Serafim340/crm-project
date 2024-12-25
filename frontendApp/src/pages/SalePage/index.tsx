@@ -49,7 +49,7 @@ export const SalePage = () => {
         <Input name="location" label="Участок" formik={formik} />
         <Input name="description" label="Товар" formik={formik} />
         <Textarea name="text" label="Комментарий" formik={formik} />
-        {!formik.isValid && <div style={{ color: 'red' }}>Поля должны быть заполнены</div>}
+        {!formik.isValid && !!formik.submitCount && <div style={{ color: 'red' }}>Поля должны быть заполнены</div>}
         <button type="submit">Зарегистрировать</button>
       </form>
     </Segment>
