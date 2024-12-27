@@ -6,4 +6,4 @@ export const getAllLocationsRoute = () => '/'
 export const viewLocationRouteParams = getRouteParams({ locationId: true })
 export type ViewIdeaRouteParams = typeof viewLocationRouteParams
 export const getViewLocationRoute = ({ locationId }: ViewIdeaRouteParams) => `/locations/${locationId}`
-export const getSalePageRoute = () => '/salePage'
+export const getNewLocationPage = () => '/new-location'
