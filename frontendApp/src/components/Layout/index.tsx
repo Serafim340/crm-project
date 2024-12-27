@@ -1,5 +1,5 @@
 import { Link, Outlet } from 'react-router-dom'
-import { getAllLocationsRoute, getSalePageRoute } from '../../lib/routes'
+import { getAllLocationsRoute, getNewLocationPage } from '../../lib/routes'
 import css from './index.module.scss'
 
 export const Layout = () => {
@@ -14,7 +14,7 @@ export const Layout = () => {
             </Link>
           </li>
           <li className={css.item}>
-            <Link className={css.link} to={getSalePageRoute()}>
+            <Link className={css.link} to={getNewLocationPage()}>
               Меню продажи
             </Link>
           </li>
