@@ -4,10 +4,13 @@ import { z } from 'zod'
 import { Input } from '../../components/Input'
 import { Segment } from '../../components/Segment'
 import { Textarea } from '../../components/TextArea'
+import { trpc } from '../../lib/trpc'
 
 export const SalePage = () => {
+  const newLocation = trpc.newLocation.useMutation()
   const formik = useFormik({
     initialValues: {
+      id: '',
       name: '',
       location: '',
       description: '',
@@ -15,6 +18,7 @@ export const SalePage = () => {
     },
     validate: withZodSchema(
       z.object({
+        id: z.string().min(1),
         name: z.string().min(1),
         location: z
           .string()
@@ -25,19 +29,20 @@ export const SalePage = () => {
       })
     ),
 
-    onSubmit: (values) => {
-      console.info('Submitted', values)
+    onSubmit: async (values) => {
+      await newLocation.mutateAsync(values)
     },
   })
 
   return (
-    <Segment title="Меню продажи">
+    <Segment title="Новый участок">
       <form
         onSubmit={(e) => {
           e.preventDefault()
           formik.handleSubmit()
         }}
       >
+        <Input name="id" label="Номер" formik={formik} />
         <Input name="name" label="Менеджер" formik={formik} />
         <Input name="location" label="Участок" formik={formik} />
         <Input name="description" label="Товар" formik={formik} />
