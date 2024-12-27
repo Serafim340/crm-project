@@ -1,6 +1,6 @@
+import { zNewLocationTrpcInput } from '@WebApp/backendApp/src/router/newLocation/input'
 import { useFormik } from 'formik'
 import { withZodSchema } from 'formik-validator-zod'
-import { z } from 'zod'
 import { Input } from '../../components/Input'
 import { Segment } from '../../components/Segment'
 import { Textarea } from '../../components/TextArea'
@@ -16,18 +16,7 @@ export const SalePage = () => {
       description: '',
       text: '',
     },
-    validate: withZodSchema(
-      z.object({
-        id: z.string().min(1),
-        name: z.string().min(1),
-        location: z
-          .string()
-          .min(1)
-          .regex(/^[a-z0-9-]+$/, 'Участок может содержать только строчные буквы, цифры и дефисы'),
-        description: z.string().min(1),
-        text: z.string().min(100),
-      })
-    ),
+    validate: withZodSchema(zNewLocationTrpcInput),
 
     onSubmit: async (values) => {
       await newLocation.mutateAsync(values)
