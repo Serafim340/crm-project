@@ -9,6 +9,6 @@ export const getLocationTrpcRoute = trpc.procedure
     })
   )
   .query(({ input }) => {
-    const location = locations.find((location) => location.id === input.locationId)
+    const location = locations.find((location) => location.name === input.locationId)
     return { location: location || null }
   })

@@ -18,7 +18,7 @@ export const LocationsPage = () => {
     <Segment title="Участки">
       <div className={css.locations}>
         {data.locations.map((location) => (
-          <div className={css.location} key={location.id}>
+          <div className={css.location} key={location.name}>
             <Segment
               size={2}
               title={
