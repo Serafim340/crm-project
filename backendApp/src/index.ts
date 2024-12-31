@@ -14,7 +14,7 @@ void (async () => {
       res.send('pong')
     })
 
-    applyTrpcToExpressApp(expressApp, ctx, trpcRouter)
+    await applyTrpcToExpressApp(expressApp, ctx, trpcRouter)
     expressApp.listen(3000, () => {
       console.info('Server is running on port 3000')
     })
