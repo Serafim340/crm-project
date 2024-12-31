@@ -2,6 +2,11 @@
 @import '../../styles/_vars';
 @import '../../styles/_mixins';
 /* stylelint-enable */
+.createdAt {
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
 .text {
   font-size: 14px;
 

@@ -8,8 +8,9 @@ datasource db {
 }
 
 model Location {
-  id   String @id @default(uuid())
-  name String @unique
-  text String
-  address String
+  id        String   @id @default(uuid())
+  name      String   @unique
+  text      String
+  address   String
+  createdAt DateTime @default(now())
 }

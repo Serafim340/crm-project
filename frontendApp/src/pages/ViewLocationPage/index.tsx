@@ -1,3 +1,4 @@
+import { format } from 'date-fns/format'
 import { useParams } from 'react-router-dom'
 import { Segment } from '../../components/Segment'
 import { type ViewIdeaRouteParams } from '../../lib/routes'
@@ -25,6 +26,7 @@ export const ViewLocationPage = () => {
 
   return (
     <Segment title={data.location.name} address={data.location.address}>
+      <div className={css.createdAt}>Создан: {format(data.location.createdAt, 'yyyy-MM-dd')}</div>
       <div className={css.text} dangerouslySetInnerHTML={{ __html: data.location.text }} />
     </Segment>
   )
