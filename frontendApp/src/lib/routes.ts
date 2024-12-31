@@ -6,4 +6,7 @@ export const getAllLocationsRoute = () => '/'
 export const viewLocationRouteParams = getRouteParams({ locationName: true })
 export type ViewIdeaRouteParams = typeof viewLocationRouteParams
 export const getViewLocationRoute = ({ locationName }: ViewIdeaRouteParams) => `/locations/${locationName}`
-export const getNewLocationPage = () => '/new-location'
+export const getNewLocationRoute = () => '/new-location'
+export const getSignUpRoute = () => '/sign-up'
+export const getSignInRoute = () => '/sign-in'
+export const getSignOutRoute = () => '/sign-out'
