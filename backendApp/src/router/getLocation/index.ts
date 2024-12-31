@@ -1,5 +1,4 @@
 import { z } from 'zod'
-import { locations } from '../../lib/locations'
 import { trpc } from '../../lib/trpc'
 
 export const getLocationTrpcRoute = trpc.procedure
@@ -8,7 +7,11 @@ export const getLocationTrpcRoute = trpc.procedure
       locationName: z.string(),
     })
   )
-  .query(({ input }) => {
-    const location = locations.find((location) => location.name === input.locationName)
-    return { location: location || null }
+  .query(async ({ ctx, input }) => {
+    const location = await ctx.prisma.location.findUnique({
+      where: {
+        name: input.locationName,
+      },
+    })
+    return { location }
   })

@@ -26,6 +26,7 @@ export const LocationsPage = () => {
                   {location.name}
                 </Link>
               }
+              address={location.address}
             ></Segment>
           </div>
         ))}

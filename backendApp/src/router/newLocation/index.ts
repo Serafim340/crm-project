@@ -1,11 +1,17 @@
-import { locations } from '../../lib/locations'
 import { trpc } from '../../lib/trpc'
 import { zNewLocationTrpcInput } from './input'
 
-export const newLocationTrpcRoute = trpc.procedure.input(zNewLocationTrpcInput).mutation(({ input }) => {
-  if (locations.find((location) => location.name === input.name)) {
+export const newLocationTrpcRoute = trpc.procedure.input(zNewLocationTrpcInput).mutation(async ({ input, ctx }) => {
+  const exLocation = await ctx.prisma.location.findUnique({
+    where: {
+      name: input.name,
+    },
+  })
+  if (exLocation) {
     throw Error('Участок с таким номером уже существует')
   }
-  locations.unshift(input)
+  await ctx.prisma.location.create({
+    data: input,
+  })
   return true
 })

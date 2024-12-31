@@ -1,7 +1,16 @@
-import _ from 'lodash'
-import { locations } from '../../lib/locations'
 import { trpc } from '../../lib/trpc'
 
-export const getLocationsTrpcRoute = trpc.procedure.query(() => {
-  return { locations: locations.map((location) => _.pick(location, ['name', 'text'])) }
+export const getLocationsTrpcRoute = trpc.procedure.query(async ({ ctx }) => {
+  const locations = await ctx.prisma.location.findMany({
+    select: {
+      id: true,
+      name: true,
+      address: true,
+      text: true,
+    },
+    orderBy: {
+      id: 'asc',
+    },
+  })
+  return { locations }
 })

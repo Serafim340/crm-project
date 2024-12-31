@@ -24,7 +24,7 @@ export const ViewLocationPage = () => {
   }
 
   return (
-    <Segment title={data.location.name} description={data.location.text}>
+    <Segment title={data.location.name} address={data.location.address}>
       <div className={css.text} dangerouslySetInnerHTML={{ __html: data.location.text }} />
     </Segment>
   )

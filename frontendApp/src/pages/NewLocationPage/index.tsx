@@ -18,6 +18,7 @@ export const NewLocationPage = () => {
     initialValues: {
       name: '',
       text: '',
+      address: '',
     },
     validate: withZodSchema(zNewLocationTrpcInput),
 
@@ -48,6 +49,7 @@ export const NewLocationPage = () => {
       >
         <FormItems>
           <Input name="name" label="Участок" formik={formik} />
+          <Input name="address" label="Адрес" formik={formik} />
           <Textarea name="text" label="Товар" formik={formik} />
           {!formik.isValid && !!formik.submitCount && <div style={{ color: 'red' }}>Поля должны быть заполнены</div>}
           {submittingError && <Alert color="red">{submittingError}</Alert>}
