@@ -5,10 +5,10 @@ import { trpc } from '../../lib/trpc'
 import css from './index.module.scss'
 
 export const ViewLocationPage = () => {
-  const { locationId } = useParams() as ViewIdeaRouteParams
+  const { locationName } = useParams() as ViewIdeaRouteParams
 
   const { data, error, isLoading, isFetching, isError } = trpc.getLocation.useQuery({
-    locationId,
+    locationName,
   })
 
   if (isLoading || isFetching) {
@@ -24,7 +24,7 @@ export const ViewLocationPage = () => {
   }
 
   return (
-    <Segment title={data.location.name} description={data.location.description}>
+    <Segment title={data.location.name} description={data.location.text}>
       <div className={css.text} dangerouslySetInnerHTML={{ __html: data.location.text }} />
     </Segment>
   )

@@ -16,10 +16,7 @@ export const NewLocationPage = () => {
   const newLocation = trpc.newLocation.useMutation()
   const formik = useFormik({
     initialValues: {
-      id: '',
       name: '',
-      location: '',
-      description: '',
       text: '',
     },
     validate: withZodSchema(zNewLocationTrpcInput),
@@ -50,11 +47,8 @@ export const NewLocationPage = () => {
         }}
       >
         <FormItems>
-          <Input name="id" label="Номер" formik={formik} />
-          <Input name="name" label="Менеджер" formik={formik} />
-          <Input name="location" label="Участок" formik={formik} />
-          <Input name="description" label="Товар" formik={formik} maxWidth={500} />
-          <Textarea name="text" label="Комментарий" formik={formik} />
+          <Input name="name" label="Участок" formik={formik} />
+          <Textarea name="text" label="Товар" formik={formik} />
           {!formik.isValid && !!formik.submitCount && <div style={{ color: 'red' }}>Поля должны быть заполнены</div>}
           {submittingError && <Alert color="red">{submittingError}</Alert>}
           {successMessageVisible && <Alert color="green">Участок успешно создан</Alert>}

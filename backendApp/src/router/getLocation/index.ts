@@ -5,10 +5,10 @@ import { trpc } from '../../lib/trpc'
 export const getLocationTrpcRoute = trpc.procedure
   .input(
     z.object({
-      locationId: z.string(),
+      locationName: z.string(),
     })
   )
   .query(({ input }) => {
-    const location = locations.find((location) => location.name === input.locationId)
+    const location = locations.find((location) => location.name === input.locationName)
     return { location: location || null }
   })

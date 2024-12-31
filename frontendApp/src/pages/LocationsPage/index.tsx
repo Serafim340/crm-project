@@ -22,11 +22,10 @@ export const LocationsPage = () => {
             <Segment
               size={2}
               title={
-                <Link className={css.locationLink} to={getViewLocationRoute({ locationId: location.id })}>
+                <Link className={css.locationLink} to={getViewLocationRoute({ locationName: location.name })}>
                   {location.name}
                 </Link>
               }
-              description={location.description}
             ></Segment>
           </div>
         ))}
