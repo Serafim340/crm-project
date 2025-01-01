@@ -37,7 +37,7 @@ export const SignInPage = () => {
   })
 
   return (
-    <Segment title="Sign In">
+    <Segment title="Войти">
       <form onSubmit={formik.handleSubmit}>
         <FormItems>
           <Input label="Логин" name="login" formik={formik} />

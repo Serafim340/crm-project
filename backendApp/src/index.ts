@@ -1,3 +1,4 @@
+import { env } from 'process'
 import cors from 'cors'
 import express from 'express'
 import { type AppContext, createAppContext } from './lib/ctx'
@@ -16,8 +17,8 @@ void (async () => {
     })
     applyPassportToExpressApp(expressApp, ctx)
     await applyTrpcToExpressApp(expressApp, ctx, trpcRouter)
-    expressApp.listen(3000, () => {
-      console.info('Server is running on port 3000')
+    expressApp.listen(env.PORT, () => {
+      console.info(`Server is running on port ${env.PORT}`)
     })
   } catch (error) {
     console.error(error)
