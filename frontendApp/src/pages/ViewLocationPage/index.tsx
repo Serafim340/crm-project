@@ -27,7 +27,6 @@ export const ViewLocationPage = () => {
   return (
     <Segment title={data.location.name} address={data.location.address}>
       <div className={css.createdAt}>Создан: {format(data.location.createdAt, 'yyyy-MM-dd')}</div>
-      <div className={css.text} dangerouslySetInnerHTML={{ __html: data.location.text }} />
     </Segment>
   )
 }

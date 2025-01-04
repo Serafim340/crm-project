@@ -7,18 +7,38 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User{
-  id String @id @default(uuid())
-  login String @unique
-  name String
-  surname String
-  password String
+model User {
+  id        String   @id @default(uuid())
+  login     String   @unique
+  name      String
+  surname   String
+  password  String
   createdAt DateTime @default(now())
 }
+
 model Location {
-  id        String   @id @default(uuid())
-  name      String   @unique
-  text      String
+  id        String            @id @default(uuid())
+  name      String            @unique
   address   String
-  createdAt DateTime @default(now())
+  createdAt DateTime          @default(now())
+  products  LocationProduct[]
+}
+
+model Product {
+  id        String            @id @default(uuid())
+  name      String            @unique
+  createdAt DateTime          @default(now())
+  location  LocationProduct[]
+}
+
+model LocationProduct {
+  id         String   @id @default(uuid())
+  location   Location @relation(fields: [locationId], references: [id])
+  locationId String
+  product    Product  @relation(fields: [productId], references: [id])
+  productId  String
+  quantity   Int
+  createdAt  DateTime @default(now())
+
+  @@unique([locationId, productId])
 }

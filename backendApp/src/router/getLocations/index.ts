@@ -6,7 +6,6 @@ export const getLocationsTrpcRoute = trpc.procedure.query(async ({ ctx }) => {
       id: true,
       name: true,
       address: true,
-      text: true,
     },
     orderBy: {
       id: 'asc',
