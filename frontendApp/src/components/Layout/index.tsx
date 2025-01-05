@@ -2,6 +2,7 @@ import { Link, Outlet } from 'react-router-dom'
 import {
   getAllLocationsRoute,
   getNewLocationRoute,
+  getNewProductRoute,
   getSignInRoute,
   getSignOutRoute,
   getSignUpRoute,
@@ -26,6 +27,11 @@ export const Layout = () => {
               <li className={css.item}>
                 <Link className={css.link} to={getNewLocationRoute()}>
                   Новый участок
+                </Link>
+              </li>
+              <li className={css.item}>
+                <Link className={css.link} to={getNewProductRoute()}>
+                  Новый товар
                 </Link>
               </li>
               <li className={css.item}>
