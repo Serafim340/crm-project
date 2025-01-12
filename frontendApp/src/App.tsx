@@ -5,6 +5,7 @@ import * as routes from './lib/routes'
 import { TrpcProvider } from './lib/trpc'
 import { NewProductPage } from './pages/NewProductPage'
 import { NotFoundPage } from './pages/NotFoundPage'
+import { EditProfilePage } from './pages/auth/EditProfilePage'
 import { SignInPage } from './pages/auth/SignInPage'
 import { SignOutPage } from './pages/auth/SignOutPage'
 import { SignUpPage } from './pages/auth/SignUpPage'
@@ -24,6 +25,7 @@ export const App = () => {
             <Route element={<Layout />}>
               <Route path={routes.getSignUpRoute()} element={<SignUpPage />} />
               <Route path={routes.getSignInRoute()} element={<SignInPage />} />
+              <Route path={routes.getEditProfileRoute()} element={<EditProfilePage />} />
               <Route path={routes.getAllLocationsRoute()} element={<LocationsPage />} />
               <Route
                 path={routes.getViewLocationRoute(routes.viewLocationRouteParams)}
