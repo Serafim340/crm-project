@@ -5,9 +5,12 @@ import { FormItems } from '../../components/Formitems'
 import { Input } from '../../components/Input'
 import { Segment } from '../../components/Segment'
 import { useForm } from '../../lib/form'
+import { withPageWrapper } from '../../lib/pageWrapper'
 import { trpc } from '../../lib/trpc'
 
-export const NewProductPage = () => {
+export const NewProductPage = withPageWrapper({
+  authorizedOnly: true,
+})(() => {
   const newProduct = trpc.newProduct.useMutation()
   const { formik, buttonProps, alertProps } = useForm({
     initialValues: {
@@ -39,4 +42,4 @@ export const NewProductPage = () => {
       </form>
     </Segment>
   )
-}
+})

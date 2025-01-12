@@ -1,25 +1,25 @@
 import { type inferRouterInputs, type inferRouterOutputs } from '@trpc/server'
 import { trpc } from '../lib/trpc'
 // @index('./**/index.ts', f => `import { ${f.path.split('/').slice(0, -1).pop()}TrpcRoute } from '${f.path.split('/').slice(0, -1).join('/')}'`)
-import { getLocationTrpcRoute } from './getLocation'
-import { getLocationsTrpcRoute } from './getLocations'
-import { getMeTrpcRoute } from './getMe'
-import { newLocationTrpcRoute } from './newLocation'
+import { getMeTrpcRoute } from './auth/getMe'
+import { signInTrpcRoute } from './auth/signIn'
+import { signUpTrpcRoute } from './auth/signUp'
+import { getLocationTrpcRoute } from './locations/getLocation'
+import { getLocationsTrpcRoute } from './locations/getLocations'
+import { newLocationTrpcRoute } from './locations/newLocation'
+import { updateLocationTrpcRoute } from './locations/updateLocation'
 import { newProductTrpcRoute } from './newProduct'
-import { signInTrpcRoute } from './signIn'
-import { signUpTrpcRoute } from './signUp'
-import { updateLocationTrpcRoute } from './updateLocation'
 // @endindex
 export const trpcRouter = trpc.router({
   // @index('./**/index.ts', f => `${f.path.split('/').slice(0, -1).pop()}: ${f.path.split('/').slice(0, -1).pop()}TrpcRoute,`)
-  getLocation: getLocationTrpcRoute,
-  getLocations: getLocationsTrpcRoute,
   getMe: getMeTrpcRoute,
-  newLocation: newLocationTrpcRoute,
-  newProduct: newProductTrpcRoute,
   signIn: signInTrpcRoute,
   signUp: signUpTrpcRoute,
+  getLocation: getLocationTrpcRoute,
+  getLocations: getLocationsTrpcRoute,
+  newLocation: newLocationTrpcRoute,
   updateLocation: updateLocationTrpcRoute,
+  newProduct: newProductTrpcRoute,
   // @endindex
 })
 
