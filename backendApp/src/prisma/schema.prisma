@@ -17,18 +17,19 @@ model User {
 }
 
 model Location {
-  id        String            @id @default(uuid())
-  name      String            @unique
-  address   String
-  createdAt DateTime          @default(now())
-  products  LocationProduct[]
+  id               String            @id @default(uuid())
+  name             String            @unique
+  address          String
+  serialNumber     Int               @unique @default(autoincrement())
+  createdAt        DateTime          @default(now())
+  locationProducts LocationProduct[]
 }
 
 model Product {
-  id        String            @id @default(uuid())
-  name      String            @unique
-  createdAt DateTime          @default(now())
-  location  LocationProduct[]
+  id               String            @id @default(uuid())
+  name             String            @unique
+  createdAt        DateTime          @default(now())
+  locationProducts LocationProduct[]
 }
 
 model LocationProduct {

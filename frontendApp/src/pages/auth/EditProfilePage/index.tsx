@@ -4,7 +4,7 @@ import { zUpdateProfileTrpcInput } from '@WebApp/backendApp/src/router/auth/upda
 import { z } from 'zod'
 import { Alert } from '../../../components/Alert'
 import { Button } from '../../../components/Button'
-import { FormItems } from '../../../components/Formitems'
+import { FormItems } from '../../../components/FormItems'
 import { Input } from '../../../components/Input'
 import { Segment } from '../../../components/Segment'
 import { useForm } from '../../../lib/form'

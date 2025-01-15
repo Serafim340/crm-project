@@ -10,7 +10,8 @@ import { getLocationTrpcRoute } from './locations/getLocation'
 import { getLocationsTrpcRoute } from './locations/getLocations'
 import { newLocationTrpcRoute } from './locations/newLocation'
 import { updateLocationTrpcRoute } from './locations/updateLocation'
-import { newProductTrpcRoute } from './newProduct'
+import { newProductTrpcRoute } from './products/newProduct'
+import { setProductCountTrpcRoute } from './products/setProductCount'
 // @endindex
 export const trpcRouter = trpc.router({
   // @index('./**/index.ts', f => `${f.path.split('/').slice(0, -1).pop()}: ${f.path.split('/').slice(0, -1).pop()}TrpcRoute,`)
@@ -24,6 +25,7 @@ export const trpcRouter = trpc.router({
   newLocation: newLocationTrpcRoute,
   updateLocation: updateLocationTrpcRoute,
   newProduct: newProductTrpcRoute,
+  setProductCount: setProductCountTrpcRoute,
   // @endindex
 })
 

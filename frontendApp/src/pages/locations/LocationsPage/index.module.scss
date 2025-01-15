@@ -15,5 +15,9 @@
     .locationLink {
       @include link;
     }
+
+    .more {
+      margin-top: 15px;
+    }
   }
 }
