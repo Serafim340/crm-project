@@ -40,7 +40,7 @@ export const Layout = () => {
               </li>
               <li className={css.item}>
                 <Link className={css.link} to={getEditProfileRoute()}>
-                  Новый товар
+                  Редактировать профиль
                 </Link>
               </li>
               <li className={css.item}>
