@@ -16,15 +16,18 @@ export const ViewLocationPage = withPageWrapper({
   },
   checkExists: ({ queryResult }) => !!queryResult.data.location,
   checkExistsMessage: 'Участок не найден',
-  setProps: ({ queryResult }) => ({
+  setProps: ({ queryResult, ctx }) => ({
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-    location: queryResult.data.location!,
+    location: queryResult.data.location,
+    me: ctx.me,
   }),
-})(({ location }) => (
+})(({ location, me }) => (
   <Segment title={location.name} address={location.address}>
     <div className={css.createdAt}>Создан: {format(location.createdAt, 'yyyy-MM-dd')}</div>
-    <div className={css.editButton}>
-      <LinkButton to={getEditLocationRoute({ locationName: location.name })}>Edit Idea</LinkButton>
-    </div>
+    {me && (
+      <div className={css.editButton}>
+        <LinkButton to={getEditLocationRoute({ locationName: location.name })}>Edit Idea</LinkButton>
+      </div>
+    )}
   </Segment>
 ))
