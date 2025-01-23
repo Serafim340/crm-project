@@ -12,23 +12,23 @@ export const getLocationTrpcRoute = trpc.procedure
       where: {
         name: input.locationName,
       },
+      include: {
+        products: {
+          where: {
+            quantity: {
+              gt: 0,
+            },
+          },
+          include: {
+            product: true,
+          },
+        },
+      },
     })
+
     if (!location) {
       throw new Error('LOCATION_NOT_FOUND')
     }
-    const locationProducts = await ctx.prisma.locationProduct.findMany({
-      where: {
-        locationId: location.id,
-      },
-      include: {
-        product: true,
-      },
-    })
-    const productsQuantity = locationProducts.map((pcs) => ({
-      productId: pcs.productId,
-      productName: pcs.product.name,
-      quantity: pcs.quantity,
-    }))
 
-    return { location, products: productsQuantity }
+    return { location }
   })

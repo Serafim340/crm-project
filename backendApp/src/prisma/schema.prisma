@@ -17,29 +17,28 @@ model User {
 }
 
 model Location {
-  id               String            @id @default(uuid())
-  name             String            @unique
-  address          String
-  serialNumber     Int               @unique @default(autoincrement())
-  createdAt        DateTime          @default(now())
-  locationProducts LocationProduct[]
+  id           String            @id @default(uuid())
+  name         String            @unique
+  address      String
+  serialNumber Int               @unique @default(autoincrement())
+  createdAt    DateTime          @default(now())
+  products     LocationProduct[]
 }
 
 model Product {
-  id               String            @id @default(uuid())
-  name             String            @unique
-  createdAt        DateTime          @default(now())
-  locationProducts LocationProduct[]
+  id         String            @id @default(uuid())
+  name       String            @unique
+  createdAt  DateTime          @default(now())
+  location   LocationProduct[]
 }
 
 model LocationProduct {
   id         String   @id @default(uuid())
-  location   Location @relation(fields: [locationId], references: [id])
   locationId String
-  product    Product  @relation(fields: [productId], references: [id])
   productId  String
-  quantity   Int
-  createdAt  DateTime @default(now())
+  quantity   Int      @default(0)
+  location   Location @relation(fields: [locationId], references: [id])
+  product    Product  @relation(fields: [productId], references: [id])
 
-  @@unique([locationId, productId])
+  @@unique([locationId, productId]) 
 }

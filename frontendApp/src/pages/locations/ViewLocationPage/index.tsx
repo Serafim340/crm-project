@@ -24,6 +24,13 @@ export const ViewLocationPage = withPageWrapper({
 })(({ location, me }) => (
   <Segment title={location.name} address={location.address}>
     <div className={css.createdAt}>Создан: {format(location.createdAt, 'yyyy-MM-dd')}</div>
+    <div className={css.products}>
+      {location.products.map((lp) => (
+        <li key={lp.id}>
+          {lp.product.name} ({lp.quantity})
+        </li>
+      ))}
+    </div>
     {me && (
       <div className={css.editButton}>
         <LinkButton to={getEditLocationRoute({ locationName: location.name })}>Edit Idea</LinkButton>
